@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
   has_one :feed_content, as: :content, dependent: :destroy
-  validates_presence_of :user_id, :text, :group_id
+  validates_presence_of :user_id, :group_id
 
 
   def user_answer(user_id)

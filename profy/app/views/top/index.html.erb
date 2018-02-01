@@ -1,8 +1,11 @@
 <% unless current_user.full_profile? %>
   <header class="header_top panel panel-default col-lg-12 no-profile">
-    <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
+    <h2>まずは、あなたの基本プロフィールを登録しましょう！/
+    First, let's register your basic profile！</h2>
+
     <p>Profyは友達の質問に答えながらプロフィールを作るサービスです！</p>
-    <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
+    <p>Profyは！</p>
+    <%= link_to "プロフィールを登録する/ Register Profile", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
   </header>
 <% else %>
   <div class="posting_form top_content">
@@ -13,8 +16,10 @@
       </div>
     </header>
     <%= form_for(@question) do |f| %>
-      <%= f.text_field :text, value: "いつ? \n どこ？", placeholder: "例：好きな食べ物は？", rows: 5 %>
-      <%= f.text_field :text, value: "どこ？", placeholder: "例：好きな食べ物は？", rows: 5 %>
+      <%= f.text_field :when, placeholder: "いつ/ When" %>
+      <%= f.text_field :where, placeholder: "どこ/ Where" %>
+      <%= f.text_field :what, placeholder: "内容は/ What" %>
+      <%= f.text_field :how_much, placeholder: "いくら/How Much" %>
       <%= f.submit "質問する" %>
     <% end %>
   </div>

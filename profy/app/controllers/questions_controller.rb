@@ -16,6 +16,6 @@ class QuestionsController < ApplicationController
 
   private
     def create_params
-      params.require(:question).permit(:text).merge(user_id: current_user.id, group_id: current_user.group_id)
+      params.require(:question).permit(:when,:where,:what,:how_much).merge(user_id: current_user.id, group_id: current_user.group_id)
     end
 end

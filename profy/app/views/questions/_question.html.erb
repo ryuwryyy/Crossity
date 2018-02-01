@@ -9,7 +9,7 @@
   <div class="question_body">
     <div class="question_box">
       <span class="q">Q</span>
-      <span class="question_text"><%= question.text %></span>
+      <span class="question_text"><%= question.when %><%= question.where %></span>
     </div>
   </div>
     <div class="questioned">
@@ -18,18 +18,18 @@
 
     <%= form_tag("/questions/join", method: :get, class: "join_submit") do %>
       <%= hidden_field_tag(:question_id, question.id) %>
-      <%= submit_tag("参加") %>
+      <%= submit_tag("参加/Join") %>
     <% end %>
 
     <%= form_tag(new_answer_path, method: :get, class: "question_submit") do %>
       <%= hidden_field_tag(:question_id, question.id) %>
-      <%= submit_tag("質問") %>
+      <%= submit_tag("質問/Ask") %>
     <% end %>
 
-    <% if question.answers.exists?(user_id: current_user.id) %>
-      <div class="answer_other">
-        <h4>※回答済み※</h4>
-      </div>
-    <% end %>
+    <!-- <% if question.answers.exists?(user_id: current_user.id) %> -->
+      <!-- <div class="answer_other"> -->
+        <!-- <h4>※回答済み※</h4> -->
+      <!-- </div> -->
+    <!-- <% end %> -->
 </div>
 </div>
