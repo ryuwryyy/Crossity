@@ -36,4 +36,5 @@ class AnswersController < ApplicationController
   def update_params
     params.require(:answer).permit(:text)
   end
+
 end
