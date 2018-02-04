@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201103124) do
+ActiveRecord::Schema.define(version: 20180204030537) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "text",        limit: 65535
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20180201103124) do
     t.text     "detail",     limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "question_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "number",      limit: 255
+    t.string   "nickname",    limit: 255
   end
 
   create_table "questions", force: :cascade do |t|
@@ -74,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180201103124) do
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
+    t.string   "nickname",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

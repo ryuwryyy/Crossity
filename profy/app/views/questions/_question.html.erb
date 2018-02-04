@@ -8,23 +8,44 @@
   </header>
   <div class="question_body">
     <div class="question_box">
-      <span class="q">Q</span>
-      <span class="question_text"><%= question.when %><%= question.where %></span>
-    </div>
-  </div>
-    <div class="questioned">
-      <%= link_to "回答#{question.answers.count}件", question_path(question) %>
+      <span class="q">When :</span>
+      <span class="question_text"><%= question.when %></span>
     </div>
 
-    <%= form_tag("/questions/join", method: :get, class: "join_submit") do %>
-      <%= hidden_field_tag(:question_id, question.id) %>
-      <%= submit_tag("参加/Join") %>
-    <% end %>
+    <div class="question_box">
+      <span class="q">Where :</span>
+      <span class="question_text"><%= question.where %></span>
+    </div>
+
+    <div class="question_box">
+      <span class="q">What :</span>
+      <span class="question_text"><%= question.what %></span>
+    </div>
+
+  </div>
+
+    <div class="questioned">
+      <%= link_to "質問#{question.answers.count}件 参加#{question.participants.count}人", question_path(question) %>
+
+    </div>
+
 
     <%= form_tag(new_answer_path, method: :get, class: "question_submit") do %>
       <%= hidden_field_tag(:question_id, question.id) %>
       <%= submit_tag("質問/Ask") %>
     <% end %>
+    <%binding.pry%>
+    <% if  %>
+    <div class="join_submit">
+    <%= form_for (@participant) do |f| %>
+      <%= f.hidden_field_tag(:question_id, question.id) %>
+      <%= f.hidden_field_tag(:user_id, current_user.id) %>
+      <%= f.hidden_field_tag(:number, "1") %>
+      <%= f.hidden_field_tag(:nickname, current_user.nickname) %>
+
+      <%= f.submit ("参加/Join") %>
+    <% end %>
+  </div>
 
     <!-- <% if question.answers.exists?(user_id: current_user.id) %> -->
       <!-- <div class="answer_other"> -->

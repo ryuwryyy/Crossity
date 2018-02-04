@@ -697,7 +697,7 @@ footer {
     .q {
       background-color: $accent;
       color: #fff;
-      width: 40px;
+      width: 70px;
       line-height: 40px;
       text-align: center;
       display: inline-block;
@@ -709,7 +709,9 @@ footer {
   }
   .question_submit {
     margin-top: 10px;
+
     input {
+      float: right;
       background-color: $base;
       padding: 10px 0;
       width: 50%;
@@ -720,9 +722,9 @@ footer {
   }
   .join_submit {
     margin-top: 10px;
-    margin-left: 20px;
+    margin-right: 10px;
     input {
-      float: right;
+
       background-color: $base;
       padding: 10px 0;
       width: 50%;

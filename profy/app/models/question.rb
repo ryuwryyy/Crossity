@@ -1,10 +1,12 @@
 class Question < ActiveRecord::Base
   after_create :create_feed_content
 
+  has_many :participants
   belongs_to :group
   belongs_to :user
   has_many :answers
   has_one :feed_content, as: :content, dependent: :destroy
+  has_many :pushed_users, through: :participants, source: :user
   validates_presence_of :user_id, :group_id
 
 
