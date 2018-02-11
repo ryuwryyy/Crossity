@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,authentication_keys: [:email, :group_key]
 
   attr_accessor :group_key
+  has_many :participants
   belongs_to :group
-  has_many :questions, ->{order("created_at DESC")}
+  has_many :questions, ->{order("created_at DESC")}, through: :participants
   has_many :answers, ->{ order("updated_at DESC") }
   has_many :answered_questions, through: :answers, source: :question
 

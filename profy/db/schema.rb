@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131073227) do
+ActiveRecord::Schema.define(version: 20180207100005) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "text",        limit: 65535
@@ -36,12 +36,25 @@ ActiveRecord::Schema.define(version: 20180131073227) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "question_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "number",      limit: 255
+    t.string   "nickname",    limit: 255
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text     "text",       limit: 65535
     t.integer  "user_id",    limit: 4
     t.integer  "group_id",   limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "when",       limit: 255
+    t.string   "where",      limit: 255
+    t.string   "what",       limit: 255
+    t.string   "how_much",   limit: 255
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,6 +83,9 @@ ActiveRecord::Schema.define(version: 20180131073227) do
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
+    t.string   "nickname",               limit: 255
+    t.string   "language",               limit: 255
+    t.string   "pastime",                limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

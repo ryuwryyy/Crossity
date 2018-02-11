@@ -30,7 +30,7 @@ body {
 body,input,textarea,table,h1,h2,h3,h4,h5,h6 {
   line-height: 1.67;
   letter-spacing: 0.15em;
-  font-size: 14px;
+  font-size: 1.3em;
   color: #3b3730;
   font-weight: bold !important;
 }
@@ -281,7 +281,7 @@ input[type=submit] {
   overflow: hidden;
   margin: 20px 15px;
   padding: 0 !important;
-  height: 200px;
+  height: 250px;
   width: 97.5%;
   .image {
     background-position: center center;
@@ -646,10 +646,12 @@ footer {
     form {
       input[type="text"] {
         border: 0;
-        font-size: 1.4em;
+        font-size: 1.3em;
+        font-family:Montserrat;
         width: 80%;
         line-height: 40px;
         margin-top: 5px;
+        color:#3b3730;
       }
       input[type="submit"] {
         width: 18%;
@@ -698,7 +700,7 @@ footer {
     .q {
       background-color: $accent;
       color: #fff;
-      width: 40px;
+      width: 70px;
       line-height: 40px;
       text-align: center;
       display: inline-block;
@@ -710,10 +712,25 @@ footer {
   }
   .question_submit {
     margin-top: 10px;
+
     input {
+      float: right;
       background-color: $base;
       padding: 10px 0;
-      width: 100%;
+      width: 50%;
+      &.disabled {
+        background-color: #ccc !important;
+      }
+    }
+  }
+  .join_submit {
+    margin-top: 10px;
+    margin-right: 10px;
+    input {
+
+      background-color: $base;
+      padding: 10px 0;
+      width: 50%;
       &.disabled {
         background-color: #ccc !important;
       }
@@ -748,3 +765,359 @@ footer {
     }
   }
 }
+
+
+
+$dark: #35414a;
+$semilight: #86919a;
+$blue: #5aafee;
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: pfs-bold;
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/PFSquareSansPro-Bold.otf');
+}
+body {
+  background: $dark;
+}
+.drop {
+  float:left;
+  width: 80%;
+  margin: 0em auto;
+  font-size: 1.1em;
+  font-family: Montserrat;
+  color: #757575;
+  text-transform: uppercase;
+  position: relative;
+  transition: width 0.5s;
+  will-change: width;
+
+  .option {
+    width: 100%;
+    height: 220%;
+    padding: 1em;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .84);
+
+
+    &:not(.active) {
+      display: none;
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.visible {
+    animation: bounce 1s;
+    width: 24em;
+
+    &:before, &:after {
+      border-color: #fff;
+    }
+    &:before {
+      opacity: 0;
+    }
+    &:after {
+      opacity: 1;
+    }
+
+    .option {
+      color:#3b3730 ;
+      display: block;
+    }
+  }
+
+  &.opacity {
+
+    .option {
+      transform: translateZ(0);
+      opacity: 1;
+
+      @for $i from 0 to 10 {
+        &:nth-child(#{$i}) {
+          transition: opacity 0.5s 0.1s*$i, transform 0.5s 0.1s*$i;
+        }
+      }
+    }
+  }
+
+&.withBG {
+
+  .option {
+    transition: background-color 0.1s;
+
+    &:not(.placeholder):hover {
+      background-color: $blue;
+    }
+
+    &:not(.placeholder).active {
+      background-color: $blue;
+    }
+  }
+}
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 0.75em;
+    height: 0.75em;
+    border: 0.2em solid $semilight;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    transition: opacity 0.2s;
+  }
+  &:before {
+    border-left: none;
+    border-top: none;
+    top: 1.2em;
+  }
+  &:after {
+    border-right: none;
+    border-bottom: none;
+    opacity: 0;
+  }
+}
+
+.mini-hack {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+
+
+
+
+/* Design tiré du site flatuicolors.com */
+
+/* Réinitialisation */
+
+*{
+    margin: 0; padding: 0;
+    box-sizing:         border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body{font-family: 'Open Sans';}
+a{color: #000; text-decoration: none;}
+img{max-width: 100%;}
+img a{border: none;}
+ul{list-style-type: none;}
+
+/* Fin Réinitialisation */
+
+/* Démo */
+
+body{
+    background: #f5f5f5;
+    padding-bottom: 30px;
+}
+
+.demo{
+    width: 600px;
+    margin: 100px auto 0 auto;
+}
+
+.demo h2{
+    font-weight: 300;
+    color: #444;
+    font-size: 1.4em;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.demo p{
+    font-weight: 300;
+    color: #444;
+    font-size: 0.9em;
+    line-height: 25px;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.demo span{
+    display: block;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 0.75em;
+    text-align: center;
+    color: #6a6a6a
+}
+
+.demo span a{
+   color: #6a6a6a
+}
+
+.demo span a:hover{
+   text-decoration: underline;
+}
+
+/* Old-Select */
+
+.old-select{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* New-Select */
+
+.new-select{
+    float: left;
+    width: 80%;
+    height: 40px;
+    margin: auto;
+
+    margin-top: 5px;
+    text-align: center;
+    color: #444;
+    line-height: 50px;
+    position: relative;
+}
+
+.new-select .selection:active{
+    transform:         rotateX(42deg);
+    -o-transform:      rotateX(42deg);
+    -ms-transform:     rotateX(42deg);
+    -moz-transform:    rotateX(42deg);
+    -webkit-transform: rotateX(42deg);
+    transform-style:         preserve-3d;
+    -o-transform-style:      preserve-3d;
+    -ms-transform-style:     preserve-3d;
+    -moz-transform-style:    preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-origin:         top;
+    -o-transform-origin:      top;
+    -ms-transform-origin:     top;
+    -moz-transform-origin:    top;
+    -webkit-transform-origin: top;
+    transition:         transform         200ms ease-in-out;
+    -o-transition:      -o-transform      200ms ease-in-out;
+    -ms-transition:     -ms-transform     200ms ease-in-out;
+    -moz-transition:    -moz-transform    200ms ease-in-out;
+    -webkit-transition: -webkit-transform 200ms ease-in-out;
+}
+
+.new-select .selection{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+
+    cursor: pointer;
+    position: relative;
+    z-index: 20; /* Doit être supérieur au nombre d'option */
+
+    transform:         rotateX(0deg);
+    -o-transform:      rotateX(0deg);
+    -ms-transform:     rotateX(0deg);
+    -moz-transform:    rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    transform-style:         preserve-3d;
+    -o-transform-style:      preserve-3d;
+    -ms-transform-style:     preserve-3d;
+    -moz-transform-style:    preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-origin:         top;
+    -o-transform-origin:      top;
+    -ms-transform-origin:     top;
+    -moz-transform-origin:    top;
+    -webkit-transform-origin: top;
+    transition:         transform         200ms ease-in-out;
+    -o-transition:      -o-transform      200ms ease-in-out;
+    -ms-transition:     -ms-transform     200ms ease-in-out;
+    -moz-transition:    -moz-transform    200ms ease-in-out;
+    -webkit-transition: -webkit-transform 200ms ease-in-out;
+}
+
+.new-select .selection p{
+    width: calc(100% - 60px);
+    position: relative;
+
+    transition:         all 200ms ease-in-out;
+    -o-transition:      all 200ms ease-in-out;
+    -ms-transition:     all 200ms ease-in-out;
+    -moz-transition:    all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+}
+
+.new-select .selection:hover p, .new-select .selection.open p{
+    color: #bdc3c7;
+}
+
+.new-select .selection i{
+    display: block;
+    width: 1px;
+    height: 70%;
+    position: absolute;
+    right: -1px; top: 15%; bottom: 15%;
+    border: none;
+    background-color: #bbb;
+}
+
+.new-select .selection > span{
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 14px 8px 0 8px; /* Height: 14px / Width: 16px */
+    border-color: #bbb transparent transparent transparent;
+
+    position: absolute;
+    top: 18px; /* 50 / 2 - 14 / 2 */
+    right: 22px; /* 60 / 2 - 16 / 2 */
+}
+
+.new-select .selection.open > span{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 14px 8px;
+    border-color: transparent transparent #bbb transparent;
+}
+
+.new-option{
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    position: relative;
+    margin-top: 1px;
+
+    position: absolute;
+    left: 0; right: 0;
+
+    transition:         all 300ms ease-in-out;
+    -o-transition:      all 300ms ease-in-out;
+    -ms-transition:     all 300ms ease-in-out;
+    -moz-transition:    all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+}
+
+.new-option p{
+    width: calc(100% - 60px);
+}
+
+.new-option.reveal:hover{
+    background-color: #444;
+    color: #f5f5f5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
