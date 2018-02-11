@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   root "top#index"
   resources :users, only: [:show, :edit, :update]
   resources :groups, only: [:show, :edit, :update]
-  resources :questions, only:[:create, :show]
-  resources :answers, only: [:new, :create]
+  resources :questions, only:[:create, :show,]
   resources :answers, only: [:new, :create, :edit, :update]
-  resources :participants, only: [:create, :update, :show]
+  resources :participants, only: [:create, :update, :show, :destroy]
 
 
 end

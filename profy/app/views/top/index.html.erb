@@ -3,7 +3,7 @@
     <h2>まずは、あなたの基本プロフィールを登録しましょう！/
     First, let's register your basic profile！</h2>
 
-    <p>Profyは友達の質問に答えながらプロフィールを作るサービスです！</p>
+    <p>Crossityは友達の質問に答えながらプロフィールを作るサービスです！</p>
     <p>Profyは！</p>
     <%= link_to "プロフィールを登録する/ Register Profile", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
   </header>
@@ -16,15 +16,25 @@
       </div>
     </header>
     <%= form_for(@question) do |f| %>
-      <%= f.text_field :when, placeholder: "いつ/ When" %>
-      <%= f.text_field :where, placeholder: "どこ/ Where" %>
-      <%= f.text_field :what, placeholder: "内容/ What" %>
+      <%= f.text_field :when, placeholder: "日付/ Date and Time" %>
+
+      <%= f.text_field :where, placeholder: "場所/ Location" %>
+      <%= f.text_field :what, placeholder: "プラン/ Plan" %>
      <!--  <%= f.text_field :how_much, placeholder: "いくら/How Much" %> -->
-      <%= f.submit "投稿/Post" %>
+      <%= f.submit "投稿/Post", disable_with: "送信中..." %>
     <% end %>
+
+
   </div>
 
+
+
+
+
+
+
   <%= render @feed_contents_resource %>
+
 
   <%= paginate(@feed_contents) %>
 

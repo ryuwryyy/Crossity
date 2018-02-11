@@ -23,6 +23,14 @@
         <div class="col-lg-6">
           <%= f.text_field :first_name_kana, placeholder: "国/ Country", class: "form-control" %>
         </div>
+
+        <div class="col-lg-6">
+          <%= f.text_field :language, placeholder: "言語/ Language", class: "form-control" %>
+        </div>
+
+        <div class="col-lg-6">
+          <%= f.text_field :pastime, placeholder: "趣味/ Pastime ", class: "form-control" %>
+        </div>
       </div>
       <div class="form-group">
         <%= f.submit "送信/Send", class: "btn btn-primary withripple" %>

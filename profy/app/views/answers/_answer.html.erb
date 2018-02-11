@@ -8,7 +8,7 @@
   </header>
   <div class="answer_body">
     <div class="answerd">
-      <%= answer.question.user.name %>の質問「<%= link_to answer.question.text, question_path(answer.question) %>」に回答しました。
+  [<%=answer.question.when%>] [<%= answer.question.user.name %>]さんのMeet-Up<%= link_to "", question_path(answer.question) %>に質問しました。
     </div>
     <% if answer.question.answered?(current_user)%>
     <div class="answer_box">

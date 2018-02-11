@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_one :feed_content, as: :content, dependent: :destroy
   has_many :pushed_users, through: :participants, source: :user
-  validates_presence_of :user_id, :group_id
+  validates_presence_of :user_id, :group_id,:when, :where, :what
 
 
   def user_answer(user_id)
